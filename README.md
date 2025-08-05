@@ -10,7 +10,7 @@ Toolkit berisi automation untuk Web Converter berbasis Selenium Webdriver.
 ## Link Repo Mandiri
 - [tutorialspoints](https://github.com/rdwaray/Selenium-Framework-Utility-Development/tree/main/tutorialspoint-Web)
 - [herokuapp-TheInternet](https://github.com/rdwaray/Selenium-Framework-Utility-Development/tree/main/herokuapp-TheInternet)
-- [DemoQA]([.Tools/Simple_Regex-main](https://github.com/rdwaray/Selenium-Framework-Utility-Development/tree/main/DemoQA))
+- [DemoQA](https://github.com/rdwaray/Selenium-Framework-Utility-Development/tree/main/DemoQA)
 
   
 ## Shared Components
