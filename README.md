@@ -4,7 +4,7 @@ Toolkit berisi automation untuk Web Converter berbasis Selenium Webdriver.
 ## Projects
 - [tutorialspoints](./tutorialspoint-Web/README.md)
 - [herokuapp-TheInternet](./herokuapp-TheInternet/README.md)
-- [DemoQA](.DemoQA/README.md)
+- [DemoQA](./DemoQA/README.md)
 
 
 ## Link Repo Mandiri
