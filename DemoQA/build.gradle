@@ -1,0 +1,69 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+
+}
+
+group = 'APITest'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Main implementation
+    implementation 'org.seleniumhq.selenium:selenium-java:4.24.0'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.9.2'
+    implementation 'io.rest-assured:xml-path:5.5.0'
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+    implementation 'ch.qos.logback:logback-classic:1.4.6'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.20.0'
+
+    // Test implementation
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.0'
+
+    testImplementation 'io.cucumber:cucumber-java:7.8.1'
+    testImplementation 'io.cucumber:cucumber-junit:7.8.1'
+    testImplementation 'io.rest-assured:rest-assured:5.5.0'
+    testImplementation 'io.rest-assured:json-schema-validator:5.5.0'
+    testImplementation 'org.json:json:20220924'
+    testImplementation 'org.slf4j:slf4j-api:1.7.36'
+    testImplementation 'io.qameta.allure:allure-cucumber7-jvm:2.20.1'
+
+}
+
+test {
+//    useJUnitPlatform() tidak menggunakan junit5
+
+}
+allure {
+    autoconfigure = true
+    version = '2.20.1'
+}
+
+task webTest(type: JavaExec) {
+    description = 'Run Web tests'
+    classpath = sourceSets.test.runtimeClasspath
+    main = 'io.cucumber.core.cli.Main'
+    args = [
+            '--plugin', 'html:build/results/webTest',
+            '--plugin', 'pretty',
+            '--glue', 'Web',
+            'src/test/resources/Web'
+    ]
+}
+
+task apiTest(type: JavaExec) {
+    description = 'Run API tests'
+    classpath = sourceSets.test.runtimeClasspath
+    main = 'io.cucumber.core.cli.Main'
+    args = [
+            '--plugin', 'html:build/results/apiTest',
+            '--plugin', 'pretty',
+            '--glue', 'API',
+            'src/test/resources/API'
+    ]
+}
+
